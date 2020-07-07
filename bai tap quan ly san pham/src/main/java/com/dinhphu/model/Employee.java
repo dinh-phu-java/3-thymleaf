@@ -18,7 +18,10 @@ public class Employee {
     private String lastName;
 
     @Column(name="date_of_birth")
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
+
+    public Employee(){}
 
     public Employee(String firstName, String lastName, Date dateOfBirth) {
         this.firstName = firstName;
@@ -56,5 +59,15 @@ public class Employee {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 }

@@ -10,4 +10,6 @@ public interface IServices<T> {
     public T save(T model);
 
     public void remove(int id);
+
+    public void update(T model);
 }

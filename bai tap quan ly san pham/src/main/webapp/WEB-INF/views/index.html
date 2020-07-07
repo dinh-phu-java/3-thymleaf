@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hello Index</title>
 </head>
 <body>
     <p>Hello Index File</p>
+
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date Of Birth</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        <tr th:each="row : ${list}">
+            <td th:text="${row.firstName}"></td>
+            <td th:text="${row.lastName}"></td>
+            <td th:text="${row.dateOfBirth}"></td>
+            <td><a th:href="@{/employee/edit/{id}(id=${row.id})}">Edit</a></td>
+            <td><a th:href="@{/employee/delete/{id}(id=${row.id})}">Delete</a></td>
+        </tr>
+
+    </table>
 </body>
 </html>
